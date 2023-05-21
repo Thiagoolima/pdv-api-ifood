@@ -92,7 +92,7 @@ const cadastraCliente = async (req: Request, res: Response): tipoRespostaPromise
         }
 
         let cepFormatado: string = ""
-        
+
         if (cep != "") {
             let cepArray: string[] = cep.split("")
             for (let item of cepArray) {
@@ -163,6 +163,7 @@ const AlteraCadastraCliente = async (req: Request, res: Response): tipoRespostaP
         await knex('clientes').update({ nome, email, cpf: cpfFormatado, cep: cepFormatado, rua, numero, bairro, cidade, estado }).where({ 'id': idCliente })
         return res.status(201).json({ mensagem: "Dados alterados com sucesso" })
     } catch (erro: any) {
+        console.log(erro)
         return res.status(500).json({ mensagem: "Erro interno do servidor" })
     }
 }
@@ -190,11 +191,11 @@ const detalhaCliente = async (req: Request, res: Response): tipoRespostaPromise 
 const deletaCliente = async (req: Request, res: Response): tipoRespostaPromise => {
     try {
         const { id } = req.params
-        const clienteExiste = await knex('clientes').where({id: id}).first()
-        if(!clienteExiste){
-            return res.status(404).json({ mensagem: "cliente não encontrado"})
+        const clienteExiste = await knex('clientes').where({ id: id }).first()
+        if (!clienteExiste) {
+            return res.status(404).json({ mensagem: "cliente não encontrado" })
         }
-        await knex('clientes').delete().where({id: id})
+        await knex('clientes').delete().where({ id: id })
         return res.status(204).send()
     } catch (erro: any) {
         return res.status(500).json({ mensagem: "Erro interno do servidor" })

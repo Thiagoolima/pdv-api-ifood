@@ -15,7 +15,7 @@ const cadastrarUsuario = async (req: Request, res: Response): tipoRespostaPromis
         const insert = await knex('usuarios').insert({ nome, email, senha: senhaHash }).returning(['id', 'nome', 'email']);
         return res.status(201).json(insert[0]);
     } catch (error: any) {
-        return res.status(500).json({ mensagem: "Erro interno do servidor"});
+        return res.status(500).json({ mensagem: "Erro interno do servidor" });
     }
 };
 
@@ -58,7 +58,7 @@ const editarUsuario = async (req: Request, res: Response): tipoRespostaPromise =
         await knex('usuarios').update({ nome, email, senha: senhaHash }).where({ id: usuario })
         return res.status(200).json({ mensagem: "usuario atualizado" })
     } catch (error: any) {
-        return res.status(500).json({ mensagem: "Erro interno de servidor2" })
+        return res.status(500).json({ mensagem: "Erro interno de servidor" })
     }
 };
 

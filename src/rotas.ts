@@ -7,14 +7,14 @@ import { produtoExiste, categoriaExiste } from './middleware/produtos'
 import { cpfValido, validaAlteracaoCliente, cpfExistente } from './middleware/clientes';
 import { schemaCadastroUsuario, schemaLogin, schemaCadastroProduto, schemaCadastroCliente } from './schemas/schemasJoi'
 import swaggerUi from 'swagger-ui-express';
-import swaggerDoc from '../swagger.json';
+import { swagger } from './docs/swagger';
 
 const rotas: Router = express.Router();
 
 rotas.post('/usuario', validarCamposBody(schemaCadastroUsuario), emailExiste(false, 'usuarios'), cadastrarUsuario);
 rotas.post('/login', emailExiste(true, 'usuarios'), validarLogin(schemaLogin), login);
 rotas.get('/categoria', listarCategorias)
-rotas.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
+rotas.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swagger));
 rotas.use(usuarioLogado)
 rotas.get('/usuario', inspecionarUsuario)
 rotas.put('/usuario', validarCamposBody(schemaCadastroUsuario), emailExiste(false, 'usuarios'), editarUsuario)
@@ -28,7 +28,7 @@ rotas.delete('/cliente/:id', deletaCliente)
 rotas.get('/produto', listarProdutos)
 rotas.get('/produto/:id', produtoExiste, detalharProduto)
 rotas.post('/produto', validarCamposBody(schemaCadastroProduto), categoriaExiste, adicionarProduto)
-rotas.put('/produto/:id',produtoExiste, validarCamposBody(schemaCadastroProduto), categoriaExiste,  editarProduto)
+rotas.put('/produto/:id', produtoExiste, validarCamposBody(schemaCadastroProduto), categoriaExiste, editarProduto)
 rotas.delete('/produto/:id', produtoExiste, deletarProduto)
 
 export default rotas;
