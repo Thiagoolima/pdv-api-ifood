@@ -4,7 +4,7 @@ export const pathUser = {
     "/usuario": {
         post: {
             tags: [
-                "Usuários"
+                "Usuário"
             ],
             summary: "Cadastrar Usuário",
             description: "Cadastre um novo usuário",
@@ -64,7 +64,7 @@ export const pathUser = {
         },
         get: {
             tags: [
-                "Usuários"
+                "Usuário"
             ],
             summary: "Inspecionar Usuário",
             description: "Detalha informações do usário logado",
@@ -99,7 +99,7 @@ export const pathUser = {
         },
         put: {
             tags: [
-                "Usuários"
+                "Usuário"
             ],
             summary: "Editar Usuário",
             description: "Edita informações do cadastro do usuário que está logado!",

@@ -4,7 +4,7 @@ export const pathProduto = {
     "/produto": {
         get: {
             tags: [
-                "Produtos"
+                "Produto"
             ],
             summary: "Listar produtos",
             description: "Lista todos os produtos cadastrados no sistema, ou filtra pelo ID da categoria, caso seja informada!",
@@ -46,10 +46,10 @@ export const pathProduto = {
         },
         post: {
             tags: [
-                "Produtos"
+                "Produto"
             ],
-            summary: "Listar produtos",
-            description: "Lista todos os produtos cadastrados no sistema, ou filtra pelo ID da categoria, caso seja informada!",
+            summary: "Adicionar produto",
+            description: "Adiciona um produto a base de dados!",
             security: [
                 {
                     "bearerAuth": []
@@ -92,7 +92,7 @@ export const pathProduto = {
     "/produto/{id}": {
         get: {
             tags: [
-                "Produtos"
+                "Produto"
             ],
             summary: "Detalhar produto",
             description: "Detalha um produto identificado pelo ID!",
@@ -105,38 +105,18 @@ export const pathProduto = {
                 {
                     name: "id",
                     in: "path",
-                    description: "ID do cliente",
+                    description: "ID do produto",
                     required: true
                 }
             ],
             required: true,
             responses: {
-                201: {
+                200: {
                     description: "Operação concluida com sucesso",
                     content: {
                         "application/json": {
                             schema: {
-                                ...schemaProdutoResponse.put.status201
-                            }
-                        }
-                    }
-                },
-                404: {
-                    description: "Ocorreu um erro com o ID informado",
-                    content: {
-                        "application/json": {
-                            schema: {
-                                ...schemaProdutoResponse.put.status404
-                            }
-                        }
-                    }
-                },
-                409: {
-                    description: "Ocorreu um erro com o um dado informado!",
-                    content: {
-                        "application/json": {
-                            schema: {
-                                ...schemaProdutoResponse.put.status409
+                                ...schemaProdutoResponse.get.status200
                             }
                         }
                     }
@@ -155,10 +135,10 @@ export const pathProduto = {
         },
         put: {
             tags: [
-                "Produtos"
+                "Produto"
             ],
             summary: "Atualizar",
-            description: "Detalha um produto identificado pelo ID!",
+            description: "Atualiza um produto identificado pelo ID!",
             security: [
                 {
                     "bearerAuth": []
@@ -168,7 +148,7 @@ export const pathProduto = {
                 {
                     name: "id",
                     in: "path",
-                    description: "ID do cliente",
+                    description: "ID do produto",
                     required: true
                 }
             ],
@@ -194,75 +174,12 @@ export const pathProduto = {
                         }
                     }
                 },
-                409: {
-                    description: "Ocorreu um erro com o um dado informado!",
-                    content: {
-                        "application/json": {
-                            schema: {
-                                ...schemaProdutoResponse.put.status409
-                            }
-                        }
-                    }
-                },
                 500: {
                     description: "Erro inesperado no servidor",
                     content: {
                         "application/json": {
                             schema: {
                                 ...schemaProdutoResponse.put.status500
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        delete: {
-            tags: [
-                "Clientes"
-            ],
-            summary: "Deletara cliente",
-            description: "Excluí um cliente informando seu ID!",
-            security: [
-                {
-                    "bearerAuth": []
-                }
-            ],
-            parameters: [
-                {
-                    name: "id",
-                    in: "path",
-                    description: "ID do cliente",
-                    required: true
-                }
-            ],
-            required: true,
-            responses: {
-                204: {
-                    description: "Operação concluida com sucesso",
-                    content: {
-                        "application/json": {
-                            schema: {
-                                ...schemaProdutoResponse.delete.status204
-                            }
-                        }
-                    }
-                },
-                404: {
-                    description: "Ocorreu um erro com o ID informado",
-                    content: {
-                        "application/json": {
-                            schema: {
-                                ...schemaProdutoResponse.delete.status404
-                            }
-                        }
-                    }
-                },
-                500: {
-                    description: "Erro inesperado no servidor",
-                    content: {
-                        "application/json": {
-                            schema: {
-                                ...schemaProdutoResponse.delete.status500
                             }
                         }
                     }

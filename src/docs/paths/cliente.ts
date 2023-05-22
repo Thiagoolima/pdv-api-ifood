@@ -5,7 +5,7 @@ export const pathCliente = {
     "/cliente": {
         post: {
             tags: [
-                "Clientes"
+                "Cliente"
             ],
             summary: "Cadastrar Cliente",
             description: "Cadastra um novo cliente",
@@ -70,7 +70,7 @@ export const pathCliente = {
         },
         get: {
             tags: [
-                "Clientes"
+                "Cliente"
             ],
             summary: "Listar clientes",
             description: "Lista todos os clientes cadastradas no sistema!",
@@ -106,7 +106,7 @@ export const pathCliente = {
     "/cliente/{id}": {
         put: {
             tags: [
-                "Clientes"
+                "Cliente"
             ],
             summary: "Atualizar cliente",
             description: "Atualiza cadastro do cliente!",
@@ -179,7 +179,7 @@ export const pathCliente = {
         },
         get: {
             tags: [
-                "Clientes"
+                "Cliente"
             ],
             summary: "Detalhar cliente",
             description: "Detalha um cliente específico pelo ID!",
@@ -242,7 +242,7 @@ export const pathCliente = {
         },
         delete: {
             tags: [
-                "Clientes"
+                "Cliente"
             ],
             summary: "Deletara cliente",
             description: "Excluí um cliente informando seu ID!",

@@ -27,116 +27,32 @@ const schemaProduto = {
 const schemaProdutoResponse = {
     get: {
         status200: {
-            type: "array",
-            items: {
-                type: "object",
-                properties: {
-                    id: {
-                        type: "string",
-                        example: "1",
-                        required: true
-                    }, nome: {
-                        type: "string",
-                        example: "Thiago Oliveira de Lima",
-                        required: true
-                    },
-                    email: {
-                        type: "string",
-                        format: "email",
-                        example: "thiago@email.com",
-                        required: true
-                    },
-                    cpf: {
-                        type: "string",
-                        format: "password",
-                        example: "123456",
-                        required: true
-                    },
-                    cep: {
-                        type: "string",
-                        example: "70460214",
-                        required: true
-                    },
-                    rua: {
-                        type: "string",
-                        example: "Avenida das Nações",
-                        required: true
-                    },
-                    numero: {
-                        type: "string",
-                        example: "215",
-                        required: true
-                    },
-                    bairro: {
-                        type: "string",
-                        example: "Asa sul",
-                        required: true
-                    },
-                    cidade: {
-                        type: "string",
-                        example: "Brasília",
-                        required: true
-                    },
-                    estado: {
-                        type: "string",
-                        example: "DF",
-                        required: true
-                    }
-                }
-            }
-        },
-        objStatus200: {
             type: "object",
             properties: {
                 id: {
                     type: "string",
-                    example: "1",
-                    required: true
-                }, nome: {
-                    type: "string",
-                    example: "Thiago Oliveira de Lima",
+                    example: "27",
                     required: true
                 },
-                email: {
+                descricao: {
                     type: "string",
-                    format: "email",
-                    example: "thiago@email.com",
+                    example: "Monitor ultra-wide lg 29 pol",
                     required: true
                 },
-                cpf: {
+                quantidade_estoque: {
+                    type: "string",
+                    example: "7",
+                    required: true
+                },
+                valor: {
                     type: "string",
                     format: "password",
-                    example: "123456",
+                    example: "175900",
                     required: true
                 },
-                cep: {
+                categoria: {
                     type: "string",
-                    example: "70460214",
-                    required: true
-                },
-                rua: {
-                    type: "string",
-                    example: "Avenida das Nações",
-                    required: true
-                },
-                numero: {
-                    type: "string",
-                    example: "215",
-                    required: true
-                },
-                bairro: {
-                    type: "string",
-                    example: "Asa sul",
-                    required: true
-                },
-                cidade: {
-                    type: "string",
-                    example: "Brasília",
-                    required: true
-                },
-                estado: {
-                    type: "string",
-                    example: "DF",
+                    example: "1",
                     required: true
                 }
             }
@@ -207,15 +123,6 @@ const schemaProdutoResponse = {
         }
     },
     put: {
-        status200: {
-            type: "object",
-            properties: {
-                mensagem: {
-                    type: "string",
-                    example: "Usuário atualizado!"
-                }
-            }
-        },
         status201: {
             type: "object",
             properties: {
@@ -230,16 +137,7 @@ const schemaProdutoResponse = {
             properties: {
                 mensagem: {
                     type: "string",
-                    example: "Cliente não encontrado, favor verificar o Id informado!"
-                }
-            }
-        },
-        status409: {
-            type: "object",
-            properties: {
-                mensagem: {
-                    type: "string",
-                    example: "Não é possível prosseguir o CPF informado já existe em nossa base de dados!"
+                    example: "Produto não encontrado, favor verificar o Id informado!"
                 }
             }
         },

@@ -3,7 +3,7 @@ export const pathCategoria = {
     "/categoria": {
         get: {
             tags: [
-                "Categorias"
+                "Categoria"
             ],
             summary: "Listar Categorias",
             description: "Lista todas as categorias cadastradas no sistema!",
